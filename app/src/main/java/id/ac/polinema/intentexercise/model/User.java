@@ -6,14 +6,6 @@ import android.os.Parcelable;
 public class User implements Parcelable {
     private String fullname, email, password,confirm_password, homepage, about;
 
-    public String getConfirm_password() {  
-        return confirm_password;
-    }
-
-    public void setConfirm_password(String confirm_password) {
-        this.confirm_password = confirm_password;
-    }
-
     public User(String fullname, String email, String password, String confirm_password, String homepage, String about) {
         this.fullname = fullname;
         this.email = email;
@@ -27,6 +19,7 @@ public class User implements Parcelable {
         fullname = in.readString();
         email = in.readString();
         password = in.readString();
+        confirm_password = in.readString();
         homepage = in.readString();
         about = in.readString();
     }
@@ -67,6 +60,14 @@ public class User implements Parcelable {
         this.password = password;
     }
 
+    public String getConfirm_password() {
+        return confirm_password;
+    }
+
+    public void setConfirm_password(String confirm_password) {
+        this.confirm_password = confirm_password;
+    }
+
     public String getHomepage() {
         return homepage;
     }
@@ -93,6 +94,7 @@ public class User implements Parcelable {
         dest.writeString(fullname);
         dest.writeString(email);
         dest.writeString(password);
+        dest.writeString(confirm_password);
         dest.writeString(homepage);
         dest.writeString(about);
     }
